@@ -15,21 +15,19 @@ public class MainActivity extends Activity implements OnMapReadyCallback {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		MapFragment mapFragment = (MapFragment) getFragmentManager()
-				.findFragmentById(R.id.map);
+		MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
 		mapFragment.getMapAsync(this);
+
 	}
 
 	@Override
 	public void onMapReady(GoogleMap map) {
-		LatLng sydney = new LatLng(-33.867, 151.206);
+		LatLng myHome = new LatLng(-26.9436298, -49.12729204);
 
 		map.setMyLocationEnabled(true);
-		map.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 13));
+		map.moveCamera(CameraUpdateFactory.newLatLngZoom(myHome, 13));
 
-		map.addMarker(new MarkerOptions().title("Sydney")
-				.snippet("The most populous city in Australia.")
-				.position(sydney));
+		map.addMarker(new MarkerOptions().title("Tada!").snippet("To te vendo cara...").position(myHome));
 		map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 	}
 
